@@ -157,6 +157,34 @@
         </div>
     </section>
     
+    <!-- Social Proof Bar -->
+    <section id="social-proof" class="bg-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="gentle-animation">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><svg class="w-8 h-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962A3.375 3.375 0 0110.5 12h3c1.155 0 2.162.668 2.684 1.62a3.375 3.375 0 010 2.76m-9.375 0a3.375 3.375 0 000 2.76M3 18.75a3.375 3.375 0 003.375-3.375v-1.5a3.375 3.375 0 00-3.375-3.375H3.75m9.062 1.5a3.375 3.375 0 01-3.375 3.375h-1.5a3.375 3.375 0 01-3.375-3.375v-1.5A3.375 3.375 0 015.625 12h1.5a3.375 3.375 0 013.375 3.375m-9 0h1.5" /></svg></div>
+                    <p class="text-3xl font-bold text-blue-500" data-count="4000">0</p>
+                    <p class="text-gray-500">Learners Empowered</p>
+                </div>
+                <div class="gentle-animation" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><svg class="w-8 h-8 text-pink-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0l-2.072-1.036A48.222 48.222 0 0112 3.493a48.222 48.222 0 0111.036 5.617l-2.072 1.036m-1.722 0A45.226 45.226 0 0112 10.634a45.226 45.226 0 01-1.722 0m1.722 0a45.226 45.226 0 00-1.722 0m1.722 0A45.226 45.226 0 0012 10.634a45.226 45.226 0 00-1.722 0" /></svg></div>
+                    <p class="text-3xl font-bold text-pink-500" data-count="150">0</p>
+                    <p class="text-gray-500">Future-Skill Workshops</p>
+                </div>
+                <div class="gentle-animation" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><svg class="w-8 h-8 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v11.494m-9-5.747h18" /></svg></div>
+                    <p class="text-3xl font-bold text-green-500" data-count="100">0</p>
+                    <p class="text-gray-500">AI for Teachers Sessions</p>
+                </div>
+                <div class="gentle-animation" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><svg class="w-8 h-8 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12.033a8.959 8.959 0 01-2.157 5.392" /></svg></div>
+                    <p class="text-3xl font-bold text-purple-500" data-count="5">0</p>
+                    <p class="text-gray-500">Countries Served</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- The First Bench Method Section -->
     <section id="method" class="py-20 md:py-28 bg-white">
         <div class="container mx-auto px-6">
@@ -497,6 +525,41 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // --- Counting Animation ---
+            function animateCount(element) {
+                const target = +element.getAttribute('data-count');
+                let current = 0;
+                const increment = target / 100;
+
+                function updateCount() {
+                    if (current < target) {
+                        current += increment;
+                        element.innerText = Math.ceil(current).toLocaleString();
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        element.innerText = target.toLocaleString() + '+';
+                    }
+                }
+                updateCount();
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('[data-count]');
+                        counters.forEach(counter => {
+                            animateCount(counter);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const socialProofSection = document.getElementById('social-proof');
+            if(socialProofSection) {
+                observer.observe(socialProofSection);
+            }
+
             // --- Course Data ---
             const courses = [
                 { title: "Personalized Tuition", desc: "One-to-one online classes for State, CBSE & ICSE syllabuses, from LKG to PG.", icon: '<svg class="w-8 h-8 text-pink-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0l-2.072-1.036A48.222 48.222 0 0112 3.493a48.222 48.222 0 0111.036 5.617l-2.072 1.036m-1.722 0A45.226 45.226 0 0112 10.634a45.226 45.226 0 01-1.722 0m1.722 0a45.226 45.226 0 00-1.722 0m1.722 0A45.226 45.226 0 0012 10.634a45.226 45.226 0 00-1.722 0" /></svg>', color: 'pink' },
